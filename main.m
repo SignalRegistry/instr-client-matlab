@@ -17,10 +17,11 @@ AUTH_TYPE = 'LinkedIN';
 AUTH_ID   = 'huseyin-yigit';
 
 % Initializing connection
+clear client;
 client = websocket(HOST);
 
 % Authorize 
-if client.status
+if client.Status
     client.send(AUTH_TYPE);
     client.send(AUTH_ID);
 end
