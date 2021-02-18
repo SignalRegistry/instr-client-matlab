@@ -21,9 +21,10 @@ clear client;
 client = websocket(HOST);
 
 % Authorize 
+user.auth = AUTH_TYPE;
+user.id = AUTH_ID;
 if client.Status
-    client.send(AUTH_TYPE);
-    client.send(AUTH_ID);
+    client.send(jsonencode(user));
 end
 
 % Closing connection 
